@@ -17,6 +17,7 @@ dependencies {
     implementation 'org.slf4j:slf4j-simple:1.7.21'
     implementation group: 'org.sql2o', name: 'sql2o', version: '1.5.4'
     implementation group: 'org.postgresql', name: 'postgresql', version: "9.4-1201-jdbc41"
+    implementation 'com.google.code.gson:gson:2.5'
 }
 
 test {

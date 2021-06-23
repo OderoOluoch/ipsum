@@ -27,7 +27,7 @@ public class App {
             return gson.toJson(slot);
         });
 
-        get("/restaurants", "application/json", (req, res) -> { //accept a request in format JSON from an app
+        get("/slots", "application/json", (req, res) -> { //accept a request in format JSON from an app
             res.type("application/json");
             return gson.toJson(parkingSlotDao.getAll());//send it back to be displayed
         });

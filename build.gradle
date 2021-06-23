@@ -1,9 +1,14 @@
 plugins {
     id 'java'
+    id 'application'
 }
 
 group 'org.odero'
 version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+
+mainClassName = "App"
 
 repositories {
     mavenCentral()
@@ -17,8 +22,12 @@ dependencies {
     implementation 'org.slf4j:slf4j-simple:1.7.21'
     implementation group: 'org.sql2o', name: 'sql2o', version: '1.5.4'
     implementation group: 'org.postgresql', name: 'postgresql', version: "9.4-1201-jdbc41"
+<<<<<<< HEAD
+    implementation 'com.google.code.gson:gson:2.5'
+=======
     compile 'com.google.code.gson:gson:2.5'
     compile group: 'com.h2database', name: 'h2', version: '1.4.191'
+>>>>>>> 24461736554a375f46d22231012b2f107203ef25
 }
 
 test {

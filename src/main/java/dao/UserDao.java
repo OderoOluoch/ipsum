@@ -14,5 +14,4 @@ public interface UserDao {
     void deleteById(int id);
     void clearAll();
 
-    void add(User testUser);
 }

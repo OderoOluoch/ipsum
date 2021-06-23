@@ -4,6 +4,7 @@ import models.User;
 import org.sql2o.Connection;
 import org.sql2o.Sql2o;
 
+import java.util.Collection;
 import java.util.List;
 
 public class Sql2oUserDao implements UserDao{
@@ -81,6 +82,10 @@ public class Sql2oUserDao implements UserDao{
 
     @Override
     public void add(User testUser) {
+
+    }
+
+    public void getAllUsersByParkingSlots(int id) {
 
     }
 }

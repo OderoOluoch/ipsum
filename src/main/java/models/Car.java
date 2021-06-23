@@ -4,14 +4,14 @@ import java.util.Objects;
 
 public class Car {
     private String car_name;
-    private int car_id;
+    private int owner_id;
     private  int parking_slot_id;
     private int id;
 
 
-    public  Car(String car_name, int car_id, int parking_slot_id){
+    public  Car(String car_name, int owner_id, int parking_slot_id){
     this.car_name = car_name;
-    this.car_id = car_id;
+    this.owner_id = owner_id;
     this.parking_slot_id = parking_slot_id;
 }
 
@@ -21,7 +21,7 @@ public class Car {
     }
 
     public int getCar_id() {
-        return car_id;
+        return owner_id;
     }
 
     public int getParking_slot_id() {
@@ -36,7 +36,7 @@ public class Car {
     }
 
     public void setCar_id(int car_id) {
-        this.car_id = car_id;
+        this.owner_id = owner_id;
     }
 
     public void setParking_slot_id(int parking_slot_id) {
@@ -51,14 +51,14 @@ public class Car {
         if (this == o) return true;
         if (!(o instanceof Car)) return false;
         Car car = (Car) o;
-        return car_id == car.car_id &&
+        return owner_id== car.owner_id &&
                 parking_slot_id == car.parking_slot_id &&
                 Objects.equals(car_name, car.car_name);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(car_name, car_id, parking_slot_id);
+        return Objects.hash(car_name, owner_id, parking_slot_id);
     }
 
     public void setId(int id) {

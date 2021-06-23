@@ -1,9 +1,13 @@
-## Wildlife Tracker
+## Ipsum packing management system
+
+###Collaborators
 Odero Oluoch
+Quienzy Ong'eye
+Jeremiah Juma
 
 
 ### Description
-A java based parking management syste.
+A java based parking management system.
 
 
 ### Setup

@@ -75,7 +75,7 @@ public class App {
         });
 
 
-//        get("/restaurants/:id", "application/json", (req, res) -> { //accept a request in format JSON from an app
+//        get("/slots/:id", "application/json", (req, res) -> { //accept a request in format JSON from an app
 //            res.type("application/json");
 //            int slotId = Integer.parseInt(req.params("id"));
 //            res.type("application/json");

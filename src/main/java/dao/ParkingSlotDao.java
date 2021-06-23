@@ -10,7 +10,7 @@ public interface ParkingSlotDao {
 
     //read
     List<ParkingSlot> getAll();
-    List<ParkingSlot> getAllDepartmentsForNews(int id);
+    List<ParkingSlot> getAllParkingSlotsForCars(int id);
 
     //update
     //omit for now

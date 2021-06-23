@@ -16,7 +16,7 @@ public class Sql2oParkingSlotDao implements ParkingSlotDao{
 
     @Override
     public void add(ParkingSlot slot) {
-        String sql = "INSERT INTO users (name, deptId) VALUES (:name , :deptId)"; //if you change your model, be sure to update here as well!
+        String sql = "INSERT INTO slots (name, carId) VALUES (:name , :carId)"; //if you change your model, be sure to update here as well!
         try (Connection con = sql2o.open()) {
             int id = (int) con.createQuery(sql, true)
                     .bind(slot)
@@ -31,21 +31,36 @@ public class Sql2oParkingSlotDao implements ParkingSlotDao{
 
     @Override
     public List<ParkingSlot> getAll() {
-        return null;
+        try (Connection con = sql2o.open()) {
+            return con.createQuery("SELECT * FROM slots")
+                    .executeAndFetch(ParkingSlot.class);
+        }
     }
 
     @Override
-    public List<ParkingSlot> getAllDepartmentsForNews(int id) {
+    public List<ParkingSlot> getAllParkingSlotsForCars(int id) {
         return null;
     }
 
     @Override
     public void deleteById(int id) {
-
+        String sql = "DELETE from slots WHERE id=:id";
+        try (Connection con = sql2o.open()) {
+            con.createQuery(sql)
+                    .addParameter("id", id)
+                    .executeUpdate();
+        } catch (Sql2oException ex) {
+            System.out.println(ex);
+        }
     }
 
     @Override
     public void clearAll() {
-
+        String sql = "DELETE from slots";
+        try (Connection con = sql2o.open()) {
+            con.createQuery(sql).executeUpdate();
+        } catch (Sql2oException ex) {
+            System.out.println(ex);
+        }
     }
 }

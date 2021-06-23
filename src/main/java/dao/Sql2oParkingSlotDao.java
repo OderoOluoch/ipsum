@@ -54,6 +54,10 @@ public class Sql2oParkingSlotDao implements ParkingSlotDao{
         }
     }
 
+
+
+
+
     @Override
     public void clearAll() {
         String sql = "DELETE from slots";

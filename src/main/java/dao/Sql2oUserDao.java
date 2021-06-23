@@ -24,7 +24,7 @@ public class Sql2oUserDao implements UserDao{
 
     @Override
     public void addUser(User user) {
-        String sql = "INSERT INTO users (name, carId, parkingId) VALUES (:name, :carId, :parkingId);";
+        String sql = "INSERT INTO users (name, carId, parkingSlotId) VALUES (:name, :carId, :parkingSlotId);";
         try(Connection con = sql2o.open()){
             int id = (int) con.createQuery(sql, true)
                     .bind(user)
@@ -50,17 +50,17 @@ public class Sql2oUserDao implements UserDao{
     }
 
     @Override
-    public void updateUser(User user, int id, String name, int carId, int parkingId) {
-        String sql = "UPDATE users SET (name, carId, parkingId) = :name, :carId, :parkingId";
+    public void updateUser(User user, int id, String name, int carId, int parkingSlotId) {
+        String sql = "UPDATE users SET (name, carId, parkingId) = :name, :carId, :parkingSlotId";
         try(Connection con = sql2o.open()){
             con.createQuery(sql)
                     .addParameter("name", name)
                     .addParameter("carId", carId)
-                    .addParameter("parkingId", parkingId)
+                    .addParameter("parkingId", parkingSlotId)
                     .executeUpdate();
             user.setName(name);
             user.setCarId(carId);
-            user.setParkingId(parkingId);
+            user.setParkingSlotId(parkingSlotId);
         }
     }
 
@@ -76,6 +76,11 @@ public class Sql2oUserDao implements UserDao{
             con.createQuery(sql)
                     .executeUpdate();
         }
+
+    }
+
+    @Override
+    public void add(User testUser) {
 
     }
 }

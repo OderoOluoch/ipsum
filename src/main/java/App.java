@@ -32,11 +32,11 @@ public class App {
             return gson.toJson(parkingSlotDao.getAll());//send it back to be displayed
         });
 
-        get("/restaurants/:id", "application/json", (req, res) -> { //accept a request in format JSON from an app
-            res.type("application/json");
-            int slotId = Integer.parseInt(req.params("id"));
-            res.type("application/json");
-            return gson.toJson( parkingSlotDao.findById(slotId) );
-        });
+//        get("/restaurants/:id", "application/json", (req, res) -> { //accept a request in format JSON from an app
+//            res.type("application/json");
+//            int slotId = Integer.parseInt(req.params("id"));
+//            res.type("application/json");
+//            return gson.toJson( parkingSlotDao.findById(slotId) );
+//        });
     }
 }

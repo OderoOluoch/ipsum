@@ -19,11 +19,11 @@ public class App {
 
     public static void main(String[] args) {
 
-        String connectionString = "jdbc:h2:~/jadle.db;INIT=RUNSCRIPT from 'classpath:db/create.sql'";
-        Sql2o sql2o = new Sql2o(connectionString, "", "");
+//        String connectionString = "jdbc:h2:~/jadle.db;INIT=RUNSCRIPT from 'classpath:db/create.sql'";
+//        Sql2o sql2o = new Sql2o(connectionString, "", "");
 //
-//        String connectionString = "jdbc:postgresql://localhost:5432/car_park";
-//        Sql2o sql2o = new Sql2o(connectionString, "moringa", "Access");
+        String connectionString = "jdbc:postgresql://localhost:5432/car_park";
+        Sql2o sql2o = new Sql2o(connectionString, "moringa", "Access");
 
         Sql2oCarDao sql20CarDao;
         Gson gson = new Gson();

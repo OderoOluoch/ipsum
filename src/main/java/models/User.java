@@ -4,13 +4,13 @@ public class User {
     private int id;
     private String name;
     private int carId;
-    private int parkingId;
+    private int parkingSlotId;
 
-    public User(int id, String name, int carId, int parkingId){
+    public User(int id, String name, int carId, int parkingSlotId){
         this.id = id;
         this.name = name;
         this.carId = carId;
-        this.parkingId = parkingId;
+        this.parkingSlotId = parkingSlotId;
     }
 
     public int getId(){
@@ -34,10 +34,14 @@ public class User {
         this.carId = carId;
     }
 
-    public int getParkingId(){
-        return parkingId;
+    public int getParkingSlotId(){
+        return parkingSlotId;
     }
-    public void setParkingId(int parkingId){
-        this.parkingId = parkingId;
+    public void setParkingSlotId(int parkingSlotId){
+        this.parkingSlotId = parkingSlotId;
+    }
+
+    public void setParkingId(int parkingId) {
+
     }
 }

@@ -1,6 +1,9 @@
 import com.google.gson.Gson;
 import dao.Sql2oParkingSlotDao;
+import dao.Sql2oUserDao;
+import dao.UserDao;
 import models.ParkingSlot;
+import models.User;
 import org.sql2o.Connection;
 import org.sql2o.Sql2o;
 import static spark.Spark.*;
@@ -9,6 +12,7 @@ public class App {
 
     public static void main(String[] args) {
         Sql2oParkingSlotDao parkingSlotDao;
+        Sql2oUserDao userDao = null;
 
         Connection conn;
         Gson gson = new Gson();
@@ -26,17 +30,18 @@ public class App {
             res.type("application/json");
             return gson.toJson(slot);
         });
+        post("/users/new", "application/json", ((request, response) -> {
+            User user = gson.fromJson (request.body (), User.class);
+            userDao.add(user);
+            response.status (201);
+            response.type ("application/json");
+            return gson.toJson (user);
+        }));
 
-        get("/restaurants", "application/json", (req, res) -> { //accept a request in format JSON from an app
-            res.type("application/json");
-            return gson.toJson(parkingSlotDao.getAll());//send it back to be displayed
-        });
+        get ("/users/:id", "application/json", ((request, response) -> {
+            int userId = Integer.parseInt (request.params ("id"));
+            return gson.toJson (userDao.findUserById (userId));
+        }));
 
-//        get("/restaurants/:id", "application/json", (req, res) -> { //accept a request in format JSON from an app
-//            res.type("application/json");
-//            int slotId = Integer.parseInt(req.params("id"));
-//            res.type("application/json");
-//            return gson.toJson( parkingSlotDao.findById(slotId) );
-//        });
     }
 }

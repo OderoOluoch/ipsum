@@ -9,6 +9,7 @@ import java.util.List;
 
 public class Sql2oUserDao implements UserDao{
     private final Sql2o sql2o;
+    private int id;
 
     public Sql2oUserDao(Sql2o sql2o) {
 
@@ -80,12 +81,19 @@ public class Sql2oUserDao implements UserDao{
 
     }
 
-    @Override
-    public void add(User testUser) {
-
-    }
-
     public void getAllUsersByParkingSlots(int id) {
 
+        this.id = id;
+    }
+
+    public void add(User user) {
+        String sql = "INSERT INTO users (name, carId, parkingSlotId) VALUES (:name, :carId, :parkingSlotId);";
+        try (Connection con = sql2o.open ( )) {
+            int id = (int) con.createQuery (sql, true)
+                    .bind (user)
+                    .executeUpdate ( )
+                    .getKey ( );
+            user.setId (id);
+        }
     }
 }

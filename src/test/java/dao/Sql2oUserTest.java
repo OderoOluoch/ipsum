@@ -29,43 +29,44 @@ public class Sql2oUserTest {
     }
     @Test
     public void addingUserSetsId() throws Exception{
-        User testUser = setupUser();
-        assertEquals(1, testUser.getId());
+        User user = setupUser();
+        assertEquals(1, user.getId());
     }
     @Test
     public void getAll() throws Exception{
-        User testUser1 = setupUser();
-        User testUser2 = setupUser();
+        User user1 = setupUser();
+        User user2 = setupUser();
         assertEquals(2, userDao.getAllUsers().size());
     }
     @Test
     public void getAllUsersByParkingSlot(){
-        ParkingSlot testParking = setupParking();
-        ParkingSlot testParking2 = setupParking();
+        ParkingSlot parking = setupParking();
+        ParkingSlot parking2 = setupParking();
 
-        User testUser1 = setupUserForParkingSlot(testParking);
-        User testUser2 = setupUserForParkingSlot(testParking);
-        User userFortestParking2 = setupUserForParkingSlot(testParking2);
+        User user1 = setupUserForParkingSlot(parking);
+        User user2 = setupUserForParkingSlot(parking);
+        User userForParking2 = setupUserForParkingSlot(parking2);
 
-        assertEquals(2, userDao.getAllUsersByParkingSlots(testParking.getId()).size());
+        assertEquals(2, userDao.getAllUsersByParkingSlots(parking.getId()).size());
     }
     @Test
     public void deleteById() throws Exception{
-        User testUser = setupUser();
-        User testUser2 = setupUser();
+        User user = setupUser();
+        User user2 = setupUser();
         assertEquals(2,userDao.getAllUsers().size());
-        userDao.deleteById(testUser.getId());
+        userDao.deleteById(user.getId());
         assertEquals(1,userDao.getAllUsers().size());
     }
+
     @Test
     public void clearAll() throws Exception{
-        User testUser = setupUser ();
-        User testUser2 = setupUser ();
+        User user = setupUser ();
+        User user2 = setupUser ();
         userDao.clearAll ();
         assertEquals (0, userDao.getAllUsers ().size ());
     }
-    private User setupUserForParkingSlot(ParkingSlot testParking2) {
-        User user = new User (1, "Odero", 3, testParking2.getId ());
+    private User setupUserForParkingSlot(ParkingSlot parking2) {
+        User user = new User (1, "Odero", 3, parking2.getId ());
         userDao.add (user);
         return user;
     }

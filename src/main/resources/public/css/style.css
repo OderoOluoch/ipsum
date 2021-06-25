@@ -1,0 +1,30 @@
+body{
+  background-image: url(../images/parking.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  
+  color: blue;
+  font-size:xx-large;
+  font-family: 'Times New Roman', Times, serif;
+  }
+   
+  .container{
+  background-color:transparent;
+  margin-top:3%;
+  width:60%;
+  font-size:25px;
+  font-family: 'Times New Roman', Times, serif;
+  }
+  .nav{
+  color:blue;}
+  .card{
+  color:blue;
+  border:1px hidden;
+  border-radius:5px;
+  box-sizing:border-box;
+  box-shadow: rgb(218, 132, 132);
+  padding:10px;
+  background-color:rgb(177, 182, 182);
+  font-size:20px;
+  font-family: 'Times New Roman', Times, serif;
+  } 

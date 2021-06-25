@@ -1,0 +1,56 @@
+<!--{{#partial "content"}}-->
+<!--    <div class="header">-->
+<!--        <h2>PARK SAFE PARK WITH IPSUM</h2>-->
+
+<!--    </div>-->
+<!--    {{#each car}}-->
+
+<!--&lt;!&ndash;        <div class="news">&ndash;&gt;-->
+<!--&lt;!&ndash;            &lt;!&ndash;                  <p>25<span>th Jul</span></p>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;            <img src="/img/news.gif" width="100%">&ndash;&gt;-->
+<!--&lt;!&ndash;            <div>&ndash;&gt;-->
+<!--&lt;!&ndash;                <p>{{news}}</p>&ndash;&gt;-->
+<!--&lt;!&ndash;            </div>&ndash;&gt;-->
+<!--            <p>{{#if department}}-->
+<!--                Department: {{department.departmentNam}}-->
+<!--            {{/if}}-->
+<!--            </p>-->
+<!--        </div>-->
+<!--    {{/each}}-->
+<!--{{/partial}}-->
+<!--{{> layouts.hbs}}-->
+
+
+{{#partial "styles"}}
+    <link rel="stylesheet" href="/css/style.css">
+{{/partial}}
+
+{{#partial "content"}}
+    <h1>YOU WANT A SAFE PARKING PARK WITH  <br> <br>IPSUM </h1>
+
+    <br><br>
+    {{#if cars}}
+        {{#each cars}}
+
+            <div class="card" style="width: 25rem;">
+                <div class="card-body">
+                    <h5 class="card-title"> {{name}}</h5>
+
+<!--                    <p>Car: {{name}}</p>-->
+<!--                    <p>Owner_id: {{owner_id}}</p>-->
+<!--                    <p>: {{power}}</p>-->
+<!--                    <p>Weaknesses: {{weakness}}</p>-->
+
+                </div>
+            </div>
+        {{/each}}
+    {{else}}
+        <!--        <p>No hero has been added.</p>-->
+        <!--        <h4>Add your hero from the menu</h4>-->
+
+    {{/if}}
+{{/partial}}
+
+{{>layout.hbs}}
+
+

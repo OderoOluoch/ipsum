@@ -1,8 +1,10 @@
 package models;
 
+import java.util.ArrayList;
 import java.util.Objects;
 
 public class Car {
+    private static ArrayList<Car> AllCars;
     private String car_name;
     private int owner_id;
     private  int parking_slot_id;
@@ -15,7 +17,11 @@ public class Car {
     this.parking_slot_id = parking_slot_id;
 }
 
-//Getters
+    public static ArrayList<Car> getAll() {
+        return AllCars;
+    }
+
+    //Getters
     public String getCar_name() {
         return car_name;
     }

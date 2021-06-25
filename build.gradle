@@ -23,7 +23,7 @@ dependencies {
     implementation group: 'org.sql2o', name: 'sql2o', version: '1.5.4'
     implementation group: 'org.postgresql', name: 'postgresql', version: "9.4-1201-jdbc41"
     implementation 'com.google.code.gson:gson:2.5'
-//    compile group: 'com.h2database', name: 'h2', version: '1.4.191'
+    implementation group: 'com.h2database', name: 'h2', version: '1.4.191'
 
 }
 

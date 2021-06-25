@@ -14,8 +14,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import static spark.Spark.get;
-import static spark.Spark.post;
+import static spark.Spark.*;
 
 public class App {
     Sql2oParkingSlotDao parkingSlotDao;
@@ -47,9 +46,9 @@ public class App {
         };
         conn = sql2o.open();
 
+        staticFileLocation("/public");
 
-
-        get("/cars/new",(request, response) ->  {
+         get("/cars/new",(request, response) ->  {
             Map<String,Object> model = new HashMap<>();
             return new ModelAndView(model,"car-form.hbs");
 
@@ -66,6 +65,23 @@ public class App {
             model.put("car",newIdentity);
             return new ModelAndView(model,"index.hbs");
         }, new HandlebarsTemplateEngine());
+
+
+
+        post ("/",(request, response) -> {
+            Map<String,Object>model = new HashMap<String, Object>();
+            String car_name =request.queryParams("car_name");
+            int owner_id= Integer.parseInt(request.queryParams("owner_id"));
+//            String power= request.queryParams("power");
+            int parking_slot_id = Integer.parseInt(request.queryParams("parking_slot_id"));
+            Car newIdentity =new Car("Bugati",78906,768);
+            model.put("car",newIdentity);
+            return new ModelAndView(model,"success2.hbs");
+        }, new HandlebarsTemplateEngine());
+
+
+
+
 
 
         get("/",(request, response) -> {

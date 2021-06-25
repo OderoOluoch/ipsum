@@ -1,5 +1,7 @@
 {{#partial "content"}}
 
+    <link rel="stylesheet" href="/css/style.css">
+
     <div class="color">
         <ul class="nav nav-tabs">
             <li role="presentation" class="active"><a href="/">Home</a></li>
@@ -12,34 +14,25 @@
     <h2>Register</h2>
     <div class="form" id="cars">
         <h3>Book a space for your car</h3>
-        <form action="/new/news" method="POST">
-            <textarea type="text" name="news" placeholder="Enter car name-model" required></textarea>
-            <input type="text" name="departmentId" placeholder="Enter car number plate" required>
 
 
-            <div class="form-group col-md-6"><br>
-                <label for="park_area">ParkArea</label>
-                <select class="form-control" name="park" id="park">
-                    <option selected>Choose parking Area</option>
-                    <option value="Underground">Basement</option>
-                    <option value="Upstairs">Upstairs</option>
-                    <option value="Normal">Parkroom</option>
-                </select>
-            </div>
+        <h1>Book parking</h1>
+
+    <form action ="/" method="post" class="form-group">
+        <label for="name">userName</label>
+        <input type="text" id="name" name="name" class="form-control">
+        <label for="age">Car type</label>
+        <input type="text" id="age" name="age" class="form-control">
+        <label for ="power">car-no-plate</label>
+        <input type="text" id="power" name="power" class="form-control">
+        <label for="weakness">Parking Area</label>
+        <input type="text" id="weakness" name="weakness" class="form-control"><br>
+
+    <button class="btn btn-danger" type="submit">Submit</button>
+
+</form>
 
 
-
-
-            <input type="submit" value="Book">
-        </form>
-    </div>
-    <div class="form" id="user">
-        <h3>Create User</h3>
-        <form action="/new/user" method="POST">
-            <input type="text" name="userName" placeholder="User Name" required>
-<!--            <input type="text" name="address" placeholder="Address">-->
-            <input type="text" name="phone" placeholder="Enter Phone" required>
-            <input type="text" name="email" placeholder="Enter Email">
 
 
 

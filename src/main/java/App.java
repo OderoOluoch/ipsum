@@ -19,7 +19,7 @@ public class App {
         Gson gson = new Gson ( );
 
 
-        public static void main (String[]args){
+        public static void main (String[]args) {
 
             String connectionString = "jdbc:h2:~/jadle.db;INIT=RUNSCRIPT from 'classpath:db/create.sql'";
             Sql2o sql2o = new Sql2o (connectionString, "", "");
@@ -68,9 +68,9 @@ public class App {
                 res.type ("application/json");
                 return gson.toJson (slot);
             });
-            post("/users/new", "application/json", (request, response) -> {
-                User user = gson.fromJson (request.body (), User.class);
-                userDao.add(user);
+            post ("/users/new", "application/json", (request, response) -> {
+                User user = gson.fromJson (request.body ( ), User.class);
+                userDao.add (user);
                 response.status (201);
                 return gson.toJson (user);
             });
@@ -86,11 +86,16 @@ public class App {
             });
 
 
-//        get("/slots/:id", "application/json", (req, res) -> { //accept a request in format JSON from an app
-//            res.type("application/json");
-//            int slotId = Integer.parseInt(req.params("id"));
-//            res.type("application/json");
-//            return gson.toJson( parkingSlotDao.findById(slotId) );
-//        });
+            get ("/slots/:id", "application/json", (req, res) -> { //accept a request in format JSON from an app
+                res.type ("application/json");
+                int slotId = Integer.parseInt (req.params ("id"));
+                res.type ("application/json");
+                return gson.toJson (parkingSlotDao.findById (slotId));
+            });
+
+            get ("/slots/:id/cars", (req, res) -> {
+                int slotId = Integer.parseInt (req.params ("id"));
+                return gson.toJson (parkingSlotDao.getAllParkingSlotsForCars (slotId));
+            });
         }
     }

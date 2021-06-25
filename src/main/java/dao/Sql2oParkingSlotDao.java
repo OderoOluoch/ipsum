@@ -10,6 +10,7 @@ import java.util.List;
 public class Sql2oParkingSlotDao implements ParkingSlotDao{
     private final Sql2o sql2o;
     public Sql2oParkingSlotDao(Sql2o sql2o){
+
         this.sql2o = sql2o;
     }
 
@@ -39,6 +40,7 @@ public class Sql2oParkingSlotDao implements ParkingSlotDao{
 
     @Override
     public List<ParkingSlot> getAllParkingSlotsForCars(int id) {
+
         return null;
     }
 
@@ -54,10 +56,6 @@ public class Sql2oParkingSlotDao implements ParkingSlotDao{
         }
     }
 
-
-
-
-
     @Override
     public void clearAll() {
         String sql = "DELETE from slots";
@@ -67,4 +65,17 @@ public class Sql2oParkingSlotDao implements ParkingSlotDao{
             System.out.println(ex);
         }
     }
+
+    public int findById(int slotId) {
+        String sql = "SELECT * FROM slots WHERE id = :id";
+        try (Connection con = sql2o.open()){
+            con.createQuery(sql)
+                    .addParameter("id", slotId)
+                    .throwOnMappingFailure(false)
+                    .executeAndFetchFirst(ParkingSlot.class);
+
+        }
+        return slotId;
+    }
+
 }
